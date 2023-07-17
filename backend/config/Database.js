@@ -23,8 +23,11 @@ const config_db = {
 
 export const db = mysql.createConnection(config_db);
 
-db.connect((err, connection) => {
-	if (err) throw err;
-	console.log('🗃  DB connected successful: ' + connection.threadId);
-	connection.release();
-});
+db.connect(function(err) {
+      if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+      }
+
+      console.log('connected as id ' + connection.threadId);
+    });
