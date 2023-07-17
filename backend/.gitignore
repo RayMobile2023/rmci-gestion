@@ -3,3 +3,5 @@ node_modules
 
 # Ignorer les fichiers liés aux clés d'API
 .env
+# Ignorer les fichiers liés aux clés d'API
+ssl
