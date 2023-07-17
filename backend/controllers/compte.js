@@ -190,7 +190,7 @@ export const create = async (req, res) => {
                     email,
                     "0",
                     created_at,
-                    "",
+                    created_at,
                     "",
                     "",
                     "",
