@@ -2,6 +2,7 @@ import { db } from "../config/Database.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
+import moment from "moment";
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ const {
 } = process.env;
 
 const saltRounds = 10;
+
+const currentDate = moment().format('Y-M-D H:m:s');
 
 const transporter = nodemailer.createTransport({
   host: EMAIL_HOST,
@@ -189,8 +192,8 @@ export const create = async (req, res) => {
                     contact,
                     email,
                     "0",
-                    current_timestamp(),
-                    current_timestamp(),
+                    currentDate,
+                    currentDate,
                     "",
                     "",
                     "",
@@ -212,7 +215,7 @@ export const create = async (req, res) => {
                           "",
                           "Administrateur",
                           0,
-                          created_at,
+                          currentDate,
                           "",
                           "",
                           "",
