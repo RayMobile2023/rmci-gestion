@@ -2,7 +2,7 @@ import fs from "fs";
 import { db } from "../config/Database.js";
 
 export const getCars = async (req, res) => {
-  db.query("select *, COUNT(immatriculation) AS nbre_car from vehicule", (err, rows, fields) => {
+  db.query("select * from vehicule", (err, rows, fields) => {
     if (!err) {
       res.send(rows);
     } else {
