@@ -190,7 +190,7 @@ export const create = async (req, res) => {
                     email,
                     "0",
                     current_timestamp(),
-                    "0000-00-00 00:00:00,
+                    current_timestamp(),
                     "",
                     "",
                     "",
