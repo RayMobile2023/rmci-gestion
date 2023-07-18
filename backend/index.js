@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 4000;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const sixtyDaysInSeconds = 5184000; // 60 * 24 * 60 * 60
 
-
+const imageURL = process.env.ORIGIN_FRONTEND_SERVER;
 
 app.use(bodyParser.json());
 app.use(
@@ -89,7 +89,7 @@ const storageCar = multer.diskStorage({
 
 const storageDriver = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '../rmci-gestion/public/uploads/drivers/avatars')
+      cb(null, `{imageURL}/public/uploads/drivers/avatars`)
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + file.originalname)
@@ -98,7 +98,7 @@ const storageDriver = multer.diskStorage({
 
 const storageContrat = multer.diskStorage({
       destination: function (req, file, cb) {
-        cb(null, '../rmci-gestion/public/uploads/drivers/contrats')
+        cb(null, `{imageURL}/public/uploads/drivers/contrats`)
       },
       filename: function (req, file, cb) {
         cb(null, Date.now() + file.originalname)
